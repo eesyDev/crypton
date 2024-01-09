@@ -9,7 +9,7 @@ import News from './News';
 
 const Homepage = () => {
 
-  const { data, isFetching } = useGetCryptosQuery();
+  const { data, isFetching } = useGetCryptosQuery(10);
 
   const globalStats = data?.data?.stats;
 
@@ -20,12 +20,12 @@ const Homepage = () => {
       Global Crypto Stats
     </Typography.Title>
       <Row>
-        <Col span={12}><Statistic title="Total cryptos" value={globalStats.total}/></Col>
-        <Col span={12}><Statistic title="Total Exchanges" value={millify(globalStats.totalExchanges)}/></Col>
-        <Col span={12}><Statistic title="Total Market Cap " value={millify(globalStats.totalMarketCap)}/></Col>
-        <Col span={12}><Statistic title="Total 24h volume" value={`${millify(globalStats.total24hVolume)}`}/></Col>
-        <Col span={12}><Statistic title="Total Markets" value={globalStats.totalMarkets}/></Col>
-        <Col span={12}><Statistic title="Total Cryptocurrencies" value={globalStats.totalCoins}/></Col>
+        <Col span={12}><Statistic title="Total cryptos" value={globalStats?.total}/></Col>
+        <Col span={12}><Statistic title="Total Exchanges" value={globalStats?.totalExchanges}/></Col>
+        <Col span={12}><Statistic title="Total Market Cap " value={globalStats?.totalMarketCap}/></Col>
+        <Col span={12}><Statistic title="Total 24h volume" value={globalStats?.total24hVolume}/></Col>
+        <Col span={12}><Statistic title="Total Markets" value={globalStats?.totalMarkets}/></Col>
+        <Col span={12}><Statistic title="Total Cryptocurrencies" value={globalStats?.totalCoins}/></Col>
       </Row>
       <div className='home-heading-container'>
         <Typography.Title level={2}>
